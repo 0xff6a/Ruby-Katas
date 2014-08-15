@@ -54,6 +54,7 @@ end
 # 'banana' becomes 'ban'. If the string is an odd number of letters
 # round up - so 'apple' becomes 'app'
 def get_first_half_of_string(string)
+	string[0, (string.length.to_f/2).ceil]
 end
 
 # turn a positive integer into a negative integer. A negative integer
@@ -128,7 +129,7 @@ end
 # pairing up elements. e.g. ['a', 'b', 'c', 'd'] becomes
 # {'a' => 'b', 'c' => 'd'}
 def convert_array_to_a_hash(array)
-	
+	array.each_slice(2).to_a.to_h
 end
 
 # get all the letters used in an array of words and return
@@ -204,7 +205,7 @@ end
 # where 'special character' means anything apart from the letters
 # a-z (uppercase and lower) or numbers
 def check_a_string_for_special_characters(string)
-	string.each_char{ |char| return true unless char.match(/[a-zA-Z]\d/) }
+	string.each_char{ |char| return true unless char.match(/[a-zA-Z0-9]/) }
 	false
 end
 
@@ -227,7 +228,9 @@ end
 
 # count the number of words in a file
 def word_count_a_file(file_path)
-	File.open(filepath, 'r') {  }
+	total = 0
+	File.open(file_path, 'r') { |file| file.readlines.each { |line| total += line.split(' ').count } }
+	total
 end
 
 # --- tougher ones ---
