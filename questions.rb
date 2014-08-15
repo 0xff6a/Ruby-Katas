@@ -1,3 +1,4 @@
+require 'open-uri'
 
 # keep only the elements that start with an a
 def select_elements_starting_with_a(array)
@@ -244,12 +245,28 @@ end
 # the list of bank holidays is here:
 # https://www.gov.uk/bank-holidays
 def is_a_2014_bank_holiday?(date)
+	holidays_2014 = []
+	open("https://www.gov.uk/bank-holidays") do |file|
+		prev_month = 0
+  	file.read.scan(/^<td class=\"calendar_date\">(.*)<\/td>$/).each do |date|
+  		month = Time.parse(date.first).month
+  		break if month < prev_month
+  		holidays_2014 << Time.parse(date.first)
+  		prev_month = month
+  	end
+  end
+  holidays_2014.include?(date)
 end
 
 # given your birthday this year, this method tells you
 # the next year when your birthday will fall on a friday
 # e.g. january 1st, will next be a friday in 2016
 def your_birthday_is_on_a_friday_in_the_year(birthday)
+	year, month, day = birthday.year, birthday.month, birthday.day
+	loop do
+		year += 1
+		return year if Time.new(year,month,day).friday?
+	end
 end
 
 # in a file, total the number of times words of different lengths
