@@ -30,7 +30,7 @@ end
 # [['Bob', 'Clive'], ['Bob', 'Dave'], ['Clive', 'Dave']]
 # make sure you don't have the same pairing twice, 
 def every_possible_pairing_of_students(array)
-
+	array.combination(2)
 end
 
 # discard the first 3 elements of an array, 
@@ -91,20 +91,24 @@ end
 # add up all the numbers in an array, so [1, 3, 5, 6]
 # returns 15
 def total_of_array(array)
+	array.inject(&:+)
 end
 
 # turn an array into itself repeated twice. So [1, 2, 3]
 # becomes [1, 2, 3, 1, 2, 3]
 def double_array(array)
+	array.push(array.clone).flatten
 end
 
 # convert a symbol into a string
 def turn_symbol_into_string(symbol)
+	symbol.to_s
 end
 
 # get the average from an array, rounded to the nearest integer
 # so [10, 15, 25] should return 17
 def average_of_array(array)
+	(total_of_array(array).to_f / array.count).round
 end
 
 # get all the elements in an array, up until the first element
@@ -112,12 +116,19 @@ end
 # [1, 3, 5, 4, 1, 2, 6, 2, 1, 3, 7]
 # becomes [1, 3, 5, 4, 1, 2]
 def get_elements_until_greater_than_five(array)
+	i, result = 0, []
+	while array[i] <= 5 do
+		result.push(array[i])
+		i +=1
+	end
+	result
 end
 
 # turn an array (with an even number of elements) into a hash, by
 # pairing up elements. e.g. ['a', 'b', 'c', 'd'] becomes
 # {'a' => 'b', 'c' => 'd'}
 def convert_array_to_a_hash(array)
+	array.to_h
 end
 
 # get all the letters used in an array of words and return
