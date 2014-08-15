@@ -251,8 +251,8 @@ end
 # given your birthday this year, this method tells you
 # the next year when your birthday will fall on a friday
 # e.g. january 1st, will next be a friday in 2016
-def your_birthday_is_on_a_friday_in_the_year(birthday)
-	(1..100).each { |i| return birthday.year + i if Time.new(birthday.year + i, birthday.month, birthday.day).friday? }
+def your_birthday_is_on_a_friday_in_the_year(date)
+	(1..100).each { |i| return date.year + i if Time.new(date.year + i, date.month, date.day).friday? }
 end
 
 # in a file, total the number of times words of different lengths
