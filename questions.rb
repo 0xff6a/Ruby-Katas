@@ -6,7 +6,7 @@ end
 
 # keep only the elements that start with a vowel
 def select_elements_starting_with_vowel(array)
-	array.select { |element| /[aeiou]/.match(element[0])}
+	array.select { |element| /[aeiou]/.match(element[0].downcase)}
 end
 
 # remove instances of nil (but NOT false) from an array
@@ -109,7 +109,7 @@ end
 # get the average from an array, rounded to the nearest integer
 # so [10, 15, 25] should return 17
 def average_of_array(array)
-	(total_of_array(array).to_f / array.count).round
+	(array.inject(&:+).to_f / array.count).round
 end
 
 # get all the elements in an array, up until the first element
@@ -228,9 +228,7 @@ end
 
 # count the number of words in a file
 def word_count_a_file(file_path)
-	total = 0
-	File.open(file_path, 'r') { |file| file.readlines.each { |line| total += line.split(' ').count } }
-	total
+	File.open(file_path, 'r') { |file| file.read.scan(/[\w']+/).count }
 end
 
 # --- tougher ones ---
@@ -239,6 +237,7 @@ end
 # called call_method_from_string('foobar')
 # the method foobar should be invoked
 def call_method_from_string(str_method)
+	call str_method.to_sym
 end
 
 # return true if the date is a uk bank holiday for 2014
@@ -259,6 +258,13 @@ end
 # and 1 that is 4 letters long. Return it as a hash in the format
 # word_length => count, e.g. {2 => 1, 3 => 5, 4 => 1}
 def count_words_of_each_length_in_a_file(file_path)
+	result = {}
+	File.open(file_path, 'r') do |file| 
+		file.read.scan(/[\w']+/) do |word|
+			result.include?(word.length) ? result[word.length] += 1 : result[word.length] = 1
+		end
+	end
+	result
 end
 
 # implement fizzbuzz without modulo, i.e. the % method
