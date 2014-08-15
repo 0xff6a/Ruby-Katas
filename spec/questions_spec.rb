@@ -249,9 +249,9 @@ describe 'the Friday test :)' do
   context '99 bottles of beer' do
 
     it 'should pluralize beer based on number' do
-      expect(_bottle_s(1)).to eq 'bottle'
-      expect(_bottle_s(0)).to eq 'bottles'
-      expect(_bottle_s(3)).to eq 'bottles'
+      expect(_bottle_s(1)).to eq '1 bottle'
+      expect(_bottle_s(0)).to eq 'no more bottles'
+      expect(_bottle_s(3)).to eq '3 bottles'
     end
 
     it 'should return the lyrics of 99 bottles of beer' do

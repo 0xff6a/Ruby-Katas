@@ -306,14 +306,18 @@ def ninety_nine_bottles_of_beer
 end
 
 def _final_verse
- "No more bottles of beer on the wall, no more bottles of beer.  Go to the store and buy some more, 99 bottles of beer on the wall."
+ "No more bottles of beer on the wall, no more bottles of beer.  Go to the store and"\
+ " buy some more, 99 bottles of beer on the wall."
 end
 
 def _refrain(current_beers)
-	"#{current_beers} #{_bottle_s(current_beers)} of beer on the wall, #{current_beers} #{_bottle_s(current_beers)} of beer.  Take one down and pass it around, #{current_beers-1} #{_bottle_s(current_beers-1)} of beer on the wall.\n"
+	"#{_bottle_s(current_beers)} of beer on the wall, #{_bottle_s(current_beers)}"\
+	" of beer.  Take one down and pass it around, #{_bottle_s(current_beers-1)}"\
+	" of beer on the wall.\n\n"
 end
 
 def _bottle_s(number)
-	return 'bottle' if number == 1
-	'bottles'
+	return '1 bottle' if number == 1
+	return 'no more bottles' if number == 0
+	return "#{number} bottles"
 end
