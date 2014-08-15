@@ -138,9 +138,7 @@ end
 # . e.g. the array ['cat', 'dog', 'fish'] becomes
 # ['a', 'c', 'd', 'f', 'g', 'h', 'i', 'o', 's', 't']
 def get_all_letters_in_array_of_words(array)
-	result = []
-	array.each { |element| element.each_char { |char| result.push(char)} }
-	result.sort.uniq
+	array.join.chars.sort.uniq
 end
 
 # swap the keys and values in a hash. e.g.
@@ -249,13 +247,17 @@ def is_a_2014_bank_holiday?(date)
 	open("https://www.gov.uk/bank-holidays") do |file|
 		prev_month = 0
   	file.read.scan(/^<td class=\"calendar_date\">(.*)<\/td>$/).each do |date|
-  		month = Time.parse(date.first).month
+  		month = _format(date).month
   		break if month < prev_month
-  		holidays_2014 << Time.parse(date.first)
+  		holidays_2014 << _format(date)
   		prev_month = month
   	end
   end
   holidays_2014.include?(date)
+end
+
+def _format(date)
+	Time.parse(date.first)
 end
 
 # given your birthday this year, this method tells you
@@ -310,4 +312,9 @@ end
 # at the end.
 # (there's no RSpec test for this one)
 def ninety_nine_bottles_of_beer
+end
+
+def _beer_s(number)
+	return 'beer' if number == 1
+	'beers'
 end

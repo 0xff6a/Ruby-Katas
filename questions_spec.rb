@@ -3,7 +3,7 @@ require_relative './questions'
 
 RSpec.configure do |config|
   config.color = true
-  config.formatter = :documentation
+  # config.formatter = :documentation
 end
 
 describe 'the Friday test :)' do
@@ -245,5 +245,15 @@ describe 'the Friday test :)' do
     end
   
   end
-  
+
+  context '99 bottles of beer' do
+
+    it 'should pluralize beer based on number' do
+      expect(_beer_s(1)).to eq 'beer'
+      expect(_beer_s(0)).to eq 'beers'
+      expect(_beer_s(3)).to eq 'beers'
+    end
+
+  end
+
 end
