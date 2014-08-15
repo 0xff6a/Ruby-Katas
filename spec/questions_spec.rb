@@ -203,13 +203,13 @@ describe 'the Friday test :)' do
     expect { call_method_from_string('foobar') }.to raise_error(NameError)
   end
 
-  # specify 'is_a_2014_bank_holiday?' do
-  #   a = is_a_2014_bank_holiday?(Time.new(2014, 8, 25))
-  #   b = is_a_2014_bank_holiday?(Time.new(2014, 8, 26))
+  specify 'is_a_2014_bank_holiday?' do
+    a = is_a_2014_bank_holiday?(Time.new(2014, 8, 25))
+    b = is_a_2014_bank_holiday?(Time.new(2014, 8, 26))
 
-  #   expect(a).to be true
-  #   expect(b).to be false
-  # end
+    expect(a).to be true
+    expect(b).to be false
+  end
 
   specify 'your_birthday_is_on_a_friday_in_the_year' do
     n = your_birthday_is_on_a_friday_in_the_year(Time.new(2013, 1, 1))
@@ -248,7 +248,7 @@ describe 'the Friday test :)' do
 
   context '99 bottles of beer' do
 
-    it 'should pluralize beer based on number' do
+    it 'should pluralize bottles based on number' do
       expect(_bottle_s(1)).to eq '1 bottle'
       expect(_bottle_s(0)).to eq 'no more bottles'
       expect(_bottle_s(3)).to eq '3 bottles'
