@@ -1,36 +1,32 @@
-## Friday test!
+Week 8 Challenge @ Makers Academy: Ruby Katas
+=============================================
 
-Here we're going to revisit the basics of Ruby. There are 41 questions - you don't have to do every single one (although if you can, that's great). You should be able to do at least 50% of them. They vary in level from quite easy to fairly hard. Work through them and check if they're correct by running the specs.
+Ruby 2.1.2
 
-You should be able to answer most questions with a couple of lines of code, and just a few methods. If you're writing a long, complex solution, there's probably a better way.
+Technologies:
+-------------
+- Ruby
+- No gems (except open uri)
 
-To run the specs, just run
+Objectives:
+-----------
+- Make each of the 41 tests pass by writing the associated ruby method
 
-~~~
-$ rspec questions_spec.rb
-~~~
+- Write tests and methods for fizz buzz without using the modulo operator
 
-**Quick tip**: to run a single example, change `it` to `fit` on that example, then run
+- Write tests and methods to print the lyrics to 99 bottles of beer
 
-~~~
-$ rspec questions_spec.rb --tag focus
-~~~
+Additional Personal Objective:
+------------------------------
+- Write all the methods as one-liners
 
-Also, don't spend the whole weekend on this. Try and do the bulk of them today, revisit it a bit this weekend if you want. Spend the weekend consolodating the stuff we've covered on Rails and JS, and carrying on with your yelp apps :smile:
+Functionality:
+--------------
+- All objectives achieved
+- 2 methods are not one-liners, but suspect this is not achievable
 
-Good luck
+Running:
+-------
+- To run the tests $ rspec questions_spec.rb
 
-### Rules
 
-* Try and get the RSpec tests to pass (but not by cheating - i.e. hardcoding the expected value)
-* You shouldn't need any extra libraries or gems
-* The cleaner your code the better!
-* Googling is fine as usual
-
-### Tips
-
-* Use the ruby docs http://www.ruby-doc.org/core-2.0.0/String.html
-* Try and break down the problems into smaller chunks. For e.g. if you google "How to select elements in an array that start with a", you won't have much luck. Try and find out a) how to select certain elements in an array, b) how to test if a string starts with an 'a'
-* Don't forget Enumerable (advanced array methods)
-* Read the specs and the comments - if you're still confused, just ask.
-* Don't panic :wink:
