@@ -186,13 +186,7 @@ end
 # 'the lion the witch and the wardrobe' becomes
 # 'The Lion the Witch and the Wardrobe'
 def titleize_a_string(string)
-	excluded_words, result = ['a', 'and', 'the'], []
-	string.split(' ').each do |word|
-		word.capitalize! unless excluded_words.include?(word)
-		result.push(word)
-	end
-	result.first.capitalize!
-	result.join(' ')
+	string.capitalize.split(' ').each { |word| word.capitalize! unless ['a', 'and', 'the'].include?(word) }.join(' ')
 end
 
 # return true if a string contains any special characters
@@ -306,6 +300,13 @@ end
 # at the end.
 # (there's no RSpec test for this one)
 def ninety_nine_bottles_of_beer
+	current_beers = 99
+	refrain = "#{current_beers} bottles of beer on the wall, #{current_beers} bottles of beer. Take one down and pass it around, #{current_beers-1} bottles of beer on the wall."
+end
+
+def _refrain(current_beers)
+	"#{current_beers} bottles of beer on the wall, #{current_beers} bottles of beer. Take one down and pass it around,"
+	+ " #{current_beers-1} bottles of beer on the wall."
 end
 
 def _beer_s(number)
