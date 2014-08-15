@@ -2,7 +2,7 @@ require 'open-uri'
 
 # keep only the elements that start with an a
 def select_elements_starting_with_a(array)
-	array.select { |element| element[0] == 'a'}
+	array.select { |element| element[0] == 'a' }
 end
 
 # keep only the elements that start with a vowel
@@ -297,12 +297,11 @@ end
 # (there's no RSpec test for this one)
 def ninety_nine_bottles_of_beer
 	current_beers = 99
-	refrain = "#{current_beers} bottles of beer on the wall, #{current_beers} bottles of beer. Take one down and pass it around, #{current_beers-1} bottles of beer on the wall."
 end
 
 def _refrain(current_beers)
-	"#{current_beers} bottles of beer on the wall, #{current_beers} bottles of beer. Take one down and pass it around,"
-	+ " #{current_beers-1} bottles of beer on the wall."
+	"#{current_beers} bottles of beer on the wall, #{current_beers} bottles of beer. "
+	+ "Take one down and pass it around, #{current_beers-1} bottles of beer on the wall."
 end
 
 def _beer_s(number)
