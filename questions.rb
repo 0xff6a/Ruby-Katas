@@ -118,12 +118,7 @@ end
 # [1, 3, 5, 4, 1, 2, 6, 2, 1, 3, 7]
 # becomes [1, 3, 5, 4, 1, 2]
 def get_elements_until_greater_than_five(array)
-	i, result = 0, []
-	while array[i] <= 5 do
-		result.push(array[i])
-		i +=1
-	end
-	result
+	array.take_while { |element| element <= 5 }
 end
 
 # turn an array (with an even number of elements) into a hash, by
@@ -204,8 +199,7 @@ end
 # where 'special character' means anything apart from the letters
 # a-z (uppercase and lower) or numbers
 def check_a_string_for_special_characters(string)
-	string.each_char{ |char| return true unless char.match(/[a-zA-Z0-9]/) }
-	false
+	string.chars.any? { |char| char.match(/[a-zA-Z0-9]/).nil? }
 end
 
 # get the upper limit of a range. e.g. for the range 1..20, you
