@@ -7,7 +7,7 @@ end
 
 # keep only the elements that start with a vowel
 def select_elements_starting_with_vowel(array)
-	array.select { |element| /[aeiou]/.match(element[0].downcase)}
+	array.select { |element| /[aeiou]/.match(element[0].downcase) }
 end
 
 # remove instances of nil (but NOT false) from an array
@@ -69,7 +69,7 @@ end
 # even numbers come first
 # so [1, 2, 3, 4, 5, 6] becomes [[2, 4, 6], [1, 3, 5]]
 def separate_array_into_even_and_odd_numbers(array)
-	[ array.select(&:even?), array.select(&:odd?)]
+	[array.select(&:even?), array.select(&:odd?)]
 end
 
 # count the numbers of elements in an element which are palindromes
@@ -77,7 +77,7 @@ end
 # e.g. 'bob'. So in the array ['bob', 'radar', 'eat'], there
 # are 2 palindromes (bob and radar), so the method should return 2
 def number_of_elements_that_are_palindromes(array)
-	array.count{ |element| element == element.reverse }
+	array.count { |element| element == element.reverse }
 end
 
 # return the shortest word in an array
@@ -287,7 +287,20 @@ end
 # implement fizzbuzz without modulo, i.e. the % method
 # go from 1 to 100
 # (there's no RSpec test for this one)
-def fizzbuzz_without_modulo
+def fizzbuzz_without_modulo(number)
+	return 'fizzbuzz' if is_divisible_by(15, number)
+	return 'fizz' if is_divisible_by(3, number)
+	return 'buzz' if is_divisible_by(5, number)
+	number
+end
+
+def is_divisible_by(divisor, number)
+	#No modulo usage :)
+	loop do
+		number -= divisor
+		return true if number == 0
+		return false if number < 0
+	end
 end
 
 # print the lyrics of the song 99 bottles of beer on the wall

@@ -220,4 +220,30 @@ describe 'the Friday test :)' do
     n = count_words_of_each_length_in_a_file('lorem.txt') || []
     expect(Hash[n.sort]).to eq({1=>1, 2=>5, 3=>7, 4=>12, 5=>14, 6=>4, 7=>8, 8=>6, 9=>6, 10=>2, 11=>2, 12=>3}) 
   end
+
+  context 'FizzBuzz no modulo' do
+
+    it 'should know whether a number is divisible by another' do
+      expect(is_divisible_by(2,4)).to be true
+      expect(is_divisible_by(3,5)).to be false
+    end
+
+    it 'should return fizz for multiples of three' do
+      expect(fizzbuzz_without_modulo(3)).to eq 'fizz'
+    end
+
+    it 'should return buzz for multiples of 5' do
+      expect(fizzbuzz_without_modulo(5)).to eq 'buzz'
+    end
+
+    it 'should return fizzbuzz for multiples of 3 and 5' do
+      expect(fizzbuzz_without_modulo(15)).to eq 'fizzbuzz'
+    end
+
+    it 'should return the argument if it is not divisible by 3 or 5' do
+      expect(fizzbuzz_without_modulo(7)).to eq(7)
+    end
+  
+  end
+  
 end
