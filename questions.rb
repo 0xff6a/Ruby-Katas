@@ -252,11 +252,7 @@ end
 # the next year when your birthday will fall on a friday
 # e.g. january 1st, will next be a friday in 2016
 def your_birthday_is_on_a_friday_in_the_year(birthday)
-	year, month, day = birthday.year, birthday.month, birthday.day
-	loop do
-		year += 1
-		return year if Time.new(year,month,day).friday?
-	end
+	(1..100).each { |i| return birthday.year + i if Time.new(birthday.year + i, birthday.month, birthday.day).friday? }
 end
 
 # in a file, total the number of times words of different lengths
