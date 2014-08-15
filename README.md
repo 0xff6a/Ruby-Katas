@@ -27,6 +27,7 @@ Functionality:
 
 Running:
 -------
-- To run the tests $ rspec questions_spec.rb
+- Tests in spec directory
+- To run the tests $ rspec from root
 
 

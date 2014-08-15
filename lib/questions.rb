@@ -297,14 +297,23 @@ end
 # (there's no RSpec test for this one)
 def ninety_nine_bottles_of_beer
 	current_beers = 99
+	lyrics = ''
+	while current_beers > 0
+		lyrics << (_refrain(current_beers))
+		current_beers -= 1 
+	end
+	lyrics << (_final_verse)
+end
+
+def _final_verse
+ "No more bottles of beer on the wall, no more bottles of beer.  Go to the store and buy some more, 99 bottles of beer on the wall."
 end
 
 def _refrain(current_beers)
-	"#{current_beers} bottles of beer on the wall, #{current_beers} bottles of beer. "
-	+ "Take one down and pass it around, #{current_beers-1} bottles of beer on the wall."
+	"#{current_beers} #{_bottle_s(current_beers)} of beer on the wall, #{current_beers} #{_bottle_s(current_beers)} of beer.  Take one down and pass it around, #{current_beers-1} #{_bottle_s(current_beers-1)} of beer on the wall.\n"
 end
 
-def _beer_s(number)
-	return 'beer' if number == 1
-	'beers'
+def _bottle_s(number)
+	return 'bottle' if number == 1
+	'bottles'
 end
