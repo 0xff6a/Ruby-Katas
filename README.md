@@ -10,7 +10,7 @@ Technologies:
 
 Objectives:
 -----------
-- Make each of the 41 tests pass by writing the associated ruby method
+- Make each of the 41 tests pass by writing the associated Ruby method
 - Write tests and methods for fizz buzz without using the modulo operator
 - Write tests and methods to print the lyrics to 99 bottles of beer
 
